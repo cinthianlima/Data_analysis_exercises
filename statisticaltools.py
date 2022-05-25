@@ -1,4 +1,4 @@
-class Statistictools1:
+class Statisticaltools1:
 
     def __init__(self, data1):
 
@@ -39,7 +39,7 @@ class Statistictools1:
 
 #Covariancia
 
-class Statistictools2:
+class Statisticaltools2:
 
     def __init__(self, data1, data2):
 
