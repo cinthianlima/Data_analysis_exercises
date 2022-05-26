@@ -82,6 +82,7 @@ class Statisticaltools1:
         self.med = self.media_aritmetica()
         self.var_list = self.var_list()
         self.soma_var = self.soma_variance()
+        self.var = self.variance()
 
 #Media aritmetica
     def soma(self):
@@ -112,7 +113,43 @@ class Statisticaltools1:
         var = self.soma_var / len(self.data1)
         return var
 
-#Covariancia
+    def skew(self):
+        list_skew = []
+        for i in range(0, len(self.data1)):
+            ri = ((self.data1[i] - self.med) ** 3)
+            list_skew.append(ri)
+        s = 0
+        for i in list_skew:
+            s = s + i
+
+        skew = s /(len(self.data1) * ((self.var ** (0.5)) ** 3))
+
+        return skew
+
+    def curtosis(self):
+        c1_list =[]
+        for i in range(0, len(self.data1)):
+            ri = ((self.data1[i] - self.med) ** 4)
+            c1_list.append(ri)
+
+        soma_c1 = 0
+        for i in c1_list:
+            soma_c1 = soma_c1 + i
+
+        a = soma_c1 / len(c1_list)
+        b = (self.var ** (0.5)) ** 4
+
+        curtosis = ((1 / (b ** 4)) * a) - 3
+
+        return curtosis
+
+
+
+
+
+
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+#xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 class Statisticaltools2:
 
@@ -120,6 +157,7 @@ class Statisticaltools2:
 
         self.data1 = data1
         self.data2 = data2
+        self.cov = self.covariance()
 
     # Erro absoluto
     def absolute_error(self):
@@ -161,8 +199,8 @@ class Statisticaltools2:
 
         data2_dif = []
         for i in range(0, len(self.data1)):
-            ri = (self.data2[i] - media2)
-            data2_dif.append(ri)
+            rj = (self.data2[i] - media2)
+            data2_dif.append(rj)
 
         cov_list= []
         for i in range(0, len(data1_dif)):
@@ -170,13 +208,17 @@ class Statisticaltools2:
             cov_list.append(cov_i)
 
         k=0
-        for k in cov_list:
+        for i in cov_list:
             k = k + i
 
         covariance = k / len(self.data1)
 
 
         return covariance
+
+
+
+
 
 
 
