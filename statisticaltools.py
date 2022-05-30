@@ -217,6 +217,16 @@ class Statisticaltools2:
         return covariance
 
 
+########################################################################################################################################################################
+import numpy as np
+
+def moeda(prob,nlan):
+    k = np.random.uniform(0.0, 1.0, nlan)
+    cara = 0
+    for j in k:
+        if j <= prob:
+            cara += 1
+    return cara
 
 
 
