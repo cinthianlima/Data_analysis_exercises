@@ -1,1 +1,1 @@
-# AnaliseDeDados
+# Data analysis exercises
